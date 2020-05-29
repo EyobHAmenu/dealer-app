@@ -18,6 +18,7 @@ public class HomeController {
     @RequestMapping("/home")
     public String homePage(Model model){
         model.addAttribute("cars", carsRepository.findAll());
+        model.addAttribute("category", categoryRepository.findAll());
         return "homePage";
     }
 
