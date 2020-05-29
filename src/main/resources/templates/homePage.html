@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+</head>
+<body>
+    <button><a href="/home">Home</a></button>
+    <button><a href="/addCategory">Add category</a></button>
+    <button><a href="/addCar">Add car</a></button>
+    <button><a href="/listCar">List car</a></button>
+    <button><a href="/listCategory">List category</a></button>
+    <h1>Welcome to Eyob car dealer cars list </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Model</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="car : ${cars}">
+                <td th:text="${car.category.type}"></td>
+                <td th:text="${car.model}"></td>
+                <td>
+                    <button><a th:href="@{/carDetail/{id}(id=${car.id})}">Detail</a></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

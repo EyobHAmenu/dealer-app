@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>car Detail</title>
+</head>
+<body>
+    <button><a href="/home">Home</a></button>
+    <button><a href="/addCategory">Add car Type</a></button>
+    <button><a href="/addCar">Add car</a></button>
+    <button><a href="/listCar">List car</a></button>
+    <h1>Detail Information</h1>
+    <div th:each="car :${carDetail}" th:inline="text">
+        Car Type: [[${car.category.type}]]<br>
+        Make: [[${car.make}]]<br>
+        Model: [[${car.model}]]<br>
+        Year: [[${car.year}]]<br>
+        MSRP: [[${car.MSRP}]]<br>
+    </div>
+</body>
+</html>

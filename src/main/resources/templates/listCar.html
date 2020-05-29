@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>list-car</title>
+</head>
+<body>
+    <button><a href="/home">Home</a></button>
+    <button><a href="/addCategory">Add car Type</a></button>
+    <button><a href="/addCar">Add car</a></button>
+    <h1>List of cars with detail Information</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Car Type</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="car : ${listCar}">
+                <td th:text="${car.category.type}"></td>
+                <td th:text="${car.make}"></td>
+                <td th:text="${car.model}"></td>
+                <td th:text="${car.year}"></td>
+                <td>
+                    <button><a th:href="@{/carDetail/{id}(id=${car.id})}">Detail</a></button>
+                    <button><a th:href="@{/carUpdate/{id}(id=${car.id})}">Update</a></button>
+                    <button><a th:href="@{/carDelete/{id}(id=${car.id})}">Delete</a></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>updateCar</title>
+</head>
+<body>
+    <button><a href="/home">Home</a></button>
+    <button><a href="/addCategory">Add category</a></button>
+    <button><a href="/listCar">List car</a></button>
+    <h1>Update Car information</h1>
+    <form th:action="@{/processUpdateCar}" th:object="${updateCar}" method="post">
+        <input type="hidden" th:field="*{id}">
+        Make:<input type="text" th:field="*{make}">
+        Model:<input type="text" th:field="*{model}">
+        Year:<input type="number" th:field="*{year}">
+        MSRP:<input type="number" th:field="*{MSRP}">
+
+        Category:
+        <select th:field="*{category}">
+            <option th:each="type : ${categoryList}"
+                    th:text="${type.type}"
+                    th:value="${type.id}">
+            </option>
+        </select>
+
+        <input type="submit" value="Done">
+    </form>
+</body>
+</html>
